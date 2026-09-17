@@ -109,6 +109,10 @@ function renderBooking(){
   $('.weekly-head .panel-desc').title='Booked minutes divided by offered minutes. — means no offered capacity.';
 }
 function feedbackStats(f){const all=M.rows(f),c=M.reasons(f,'cancelled',controls('feedback')[5].value),n=M.reasons(f,'no_show',controls('feedback')[4].value);return {all,c,n,cr:rate(c.length,all.length),nr:rate(n.length,all.length)};}
+function scoreMeter(score,label){
+  const value=score==null?null:Math.round(score*10)/10;
+  return `<div class="score-meter" role="img" aria-label="${esc(label)}: ${value==null?'No responses':value+' out of 5'}">`+Array.from({length:5},(_,i)=>`<span class="score-segment"><span class="score-fill" style="width:${value==null?0:Math.max(0,Math.min(1,value-i))*100}%"></span></span>`).join('')+'</div>';
+}
 function renderFeedback(){
   const f=feedbackFilter(),s=feedbackStats(f),p=feedbackStats(feedbackFilter(true)),t=M.themes(f),surveys=M.surveys(f),previous=M.surveys(feedbackFilter(true));
   [['cancelTotal',fmt(s.c.length)],['noShowTotal',fmt(s.n.length)],['cancelRate',pc(s.cr)],['noShowRate',pc(s.nr)]].forEach(([id,v])=>$('#'+id).textContent=v);
@@ -123,7 +127,7 @@ function renderFeedback(){
   const ceiling=Math.min(100,Math.max(30,Math.ceil(Math.max(...reference.flatMap(x=>[x.cr||0,x.nr||0]))/10)*10));
   ['cancelChart','noShowChart'].forEach((id,i)=>draw(id,buckets.map(bucketLabel),[{label:i?'No-show rate (%)':'Cancellation rate (%)',data:bucketStats.map(x=>i?x.nr:x.cr),borderColor:i?'#9899da':'#ffb354',backgroundColor:i?'#9899da':'#ffca8b',pointBackgroundColor:i?'#9899da':'#ffb354',tension:0,pointStyle:'rectRounded',pointRadius:11,pointHoverRadius:13,hitRadius:28,pointBorderWidth:2.4,pointBorderColor:'#ffffff',borderWidth:2,fill:false}],'line',{interaction:{mode:'index',intersect:false},layout:{padding:{left:4,right:12,top:8}},scales:{x:{grid:{display:false},ticks:{autoSkip:false,maxRotation:0,font:{size:12,weight:'500'},padding:7}},y:{beginAtZero:true,max:ceiling,grid:{color:'#f0f2f7'},ticks:{maxTicksLimit:6,font:{size:12,weight:'500'},padding:7}}},plugins:{legend:{display:false},tooltip:{callbacks:{title:items=>{const x=buckets[items[0].dataIndex];return x.start+' → '+x.end;},afterLabel:ctx=>{const b=bucketStats[ctx.dataIndex];return `${i?b.n.length:b.c.length} / ${b.all.length} attempts${b.all.length<5?' · low sample':''}`;}}}}}));
   $$('.fb-charts .line-panel').forEach(panel=>{panel.title=calendarBuckets.length===7?'Service days only · non-working days excluded':'Grouped by the date ranges shown';});
-  $('#feedbackSurveyStrip').innerHTML=[['overall','Overall satisfaction'],['booking','Booking process'],['waiting','Waiting time'],['experience','Appointment experience'],['quality','Consultation quality']].map(([k,l])=>`<div class="survey" title="Average of ${surveys.filter(r=>r[k]!=null).length} responses"><label>${l}</label><b>${fmt(mean(surveys,k))}/5</b></div>`).join('');
+  $('#feedbackSurveyStrip').innerHTML=[['overall','Overall satisfaction'],['booking','Booking process'],['waiting','Waiting time'],['experience','Appointment experience'],['quality','Consultation quality']].map(([k,l])=>{const score=mean(surveys,k);return `<div class="survey" title="Average of ${surveys.filter(r=>r[k]!=null).length} responses"><label>${l}</label><b>${fmt(score)}/5</b>${scoreMeter(score,l)}</div>`;}).join('');
   const reasons=['Emergency / Unforeseen Obligations','Change of Mind','Financial Issues','Patient Anxiety / Resistance','Unknown'], counts=reasons.map(r=>s.c.filter(a=>a.cancellation_reason===r).length), reasonColors=['#9497dd','#e76064','#474b9e','#f2a645','#fae8c7'];
   draw('reasonChart',reasons,[{label:'Cancelled appointments',data:counts,backgroundColor:reasonColors,borderWidth:0}],'doughnut',{cutout:'62%',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`${c.label}: ${pc(rate(c.raw,s.c.length))}`}}}});
   $$('.donut-legend .legend-row').forEach((el,i)=>el.innerHTML=`<span class="swatch" style="background:${reasonColors[i]}"></span>${esc(reasons[i])} · ${counts[i]} (${pc(rate(counts[i],s.c.length))})`);
@@ -198,7 +202,8 @@ function init(){
   $$('.calendar-toggle').forEach(el=>el.addEventListener('click',()=>{bookingPeriod=el.dataset.bookingPeriod==='week'?7:28;$$('.calendar-toggle').forEach(x=>x.classList.toggle('active',x===el));renderBooking();}));
   $('.week-switches label').firstChild.textContent='Next 7 days ';
   $('.search').addEventListener('input',renderClinicianTable);
-  const buttons=$$('.table-buttons button');buttons[0].onclick=()=>controls('clinician')[0].focus();buttons[1].textContent='Sort · utilisation ↑';buttons[1].onclick=()=>{sortAscending=!sortAscending;buttons[1].textContent='Sort · utilisation '+(sortAscending?'↑':'↓');renderClinicianTable();};buttons[2].onclick=exportClinicians;
+  const buttons=$$('.table-buttons button');buttons[0].remove();buttons[1].textContent='Sort · utilisation ↑';buttons[1].onclick=()=>{sortAscending=!sortAscending;buttons[1].textContent='Sort · utilisation '+(sortAscending?'↑':'↓');renderClinicianTable();};buttons[2].onclick=exportClinicians;
+  const headers=$$('.clinician-table thead th');headers[0].textContent='Clinician ID';headers[1].textContent='Clinician';
   // No false promise that this read-only prototype creates clinical records.
   [...$$('.head-actions button'),buttons[3],...$$('.topbar .icon-btn')].forEach(el=>{el.disabled=true;el.title='Read-only data prototype: this workflow is not implemented.';});
   document.addEventListener('click',event=>{const e=event.target.closest('[data-ai-scenario],[data-day],[data-month],[data-clinician-detail]');if(!e)return;

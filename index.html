@@ -180,6 +180,13 @@
 #feedbackDefinitions{cursor:pointer;text-align:right}
 #feedbackThemes .theme-score{white-space:nowrap}
 button:disabled{cursor:not-allowed}
+/* User-requested refinements; keep the V14 composition intact. */
+#feedbackInsights .insight p{font-size:13px;line-height:1.55}
+.clinician-table .small-av{flex:0 0 29px;width:29px;height:29px;min-width:29px;aspect-ratio:1;border-radius:50%;overflow:hidden}
+.score-meter{display:flex;gap:5px;height:9px;margin-top:13px}
+.score-meter .score-segment{display:block;flex:1;overflow:hidden;border-radius:4px;background:#eeedf8}
+.score-meter .score-fill{display:block;height:100%;background:#8d8fd6;border-radius:4px}
+#feedbackSurveyStrip .survey b{margin-bottom:0}
 </style>
 </head>
 <body>
@@ -294,5 +301,5 @@ button:disabled{cursor:not-allowed}
 <div class="chart-hover-tooltip" id="lineChartTooltip"></div>
 <script src="synthetic_operations.js?v=v14-restore1"></script>
 <script src="clinic_model.js?v=v14-restore1"></script>
-<script src="dashboard_app.js?v=v14-restore1"></script>
+<script src="dashboard_app.js?v=v14-refine2"></script>
 </body></html>
