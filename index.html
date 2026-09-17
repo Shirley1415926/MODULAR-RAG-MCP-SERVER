@@ -252,7 +252,7 @@
     </section>
     <!-- PATIENT FEEDBACK -->
     <section class="page feedback" id="feedback">
-      <div class="page-head"><h1>Patient Feedback</h1><div class="filters">
+      <div class="page-head"><div><h1>Patient Feedback</h1><p id="syntheticDataSummary" style="margin:4px 0 0;color:#78839a;font-size:11px">Loading synthetic operations database…</p></div><div class="filters">
         <div class="select-wrap"><label>Date Range</label><select class="filter" data-scope="feedback"><option value="last_7_days">Last 7 Days</option><option value="last_30_days">Last 30 Days</option><option value="last_quarter">Last Quarter</option></select></div>
         <div class="select-wrap"><label>Clinician</label><select class="filter" data-scope="feedback"><option value="all">All Clinicians</option><option value="dr. maya chen">Dr. Maya Chen</option><option value="elena ruiz">Elena Ruiz</option><option value="jordan patel">Jordan Patel</option></select></div>
         <div class="select-wrap"><label>Patient</label><select class="filter" data-scope="feedback"><option value="all">All Patients</option><option value="high_risk">High Risk Only</option><option value="new_patient">New Patients</option><option value="continuing_patient">Continuing Patients</option></select></div>
@@ -263,7 +263,7 @@
       <div class="fb-kpis"><div class="card fb-kpi"><div class="top"><span class="round-icon"><svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="16" rx="3"></rect><path d="M8 2.7v5M16 2.7v5M3.5 10h17"></path><path d="M12 17.2c-1.8-1.2-3-2.2-3-3.4a1.6 1.6 0 0 1 3-1 1.6 1.6 0 0 1 3 1c0 1.2-1.2 2.2-3 3.4z"></path></svg></span>Total Cancellation</div><div class="num" id="cancelTotal">242</div><span class="delta red">+15%</span><span class="subtext">in last 7 Days</span></div><div class="card fb-kpi"><div class="top"><span class="round-icon" style="background:#8d8fd6"><svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="16" rx="3"></rect><path d="M8 2.7v5M16 2.7v5M3.5 10h17"></path><path d="M12 17.2c-1.8-1.2-3-2.2-3-3.4a1.6 1.6 0 0 1 3-1 1.6 1.6 0 0 1 3 1c0 1.2-1.2 2.2-3 3.4z"></path></svg></span>Total No-Shows</div><div class="num" id="noShowTotal">36</div><span class="delta green">-12%</span><span class="subtext">in last 7 Days</span></div><div class="card fb-kpi"><div class="top"><span class="round-icon" style="background:#e85f61"><svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="16" rx="3"></rect><path d="M8 2.7v5M16 2.7v5M3.5 10h17"></path><path d="M12 17.2c-1.8-1.2-3-2.2-3-3.4a1.6 1.6 0 0 1 3-1 1.6 1.6 0 0 1 3 1c0 1.2-1.2 2.2-3 3.4z"></path></svg></span>Cancellation Rate</div><div class="num" id="cancelRate">15%</div><span class="delta red">+3%</span><span class="subtext">in last 7 Days</span></div><div class="card fb-kpi"><div class="top"><span class="round-icon" style="background:#f59a26"><svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="16" rx="3"></rect><path d="M8 2.7v5M16 2.7v5M3.5 10h17"></path><path d="M12 17.2c-1.8-1.2-3-2.2-3-3.4a1.6 1.6 0 0 1 3-1 1.6 1.6 0 0 1 3 1c0 1.2-1.2 2.2-3 3.4z"></path></svg></span>No-Show Rate</div><div class="num" id="noShowRate">4%</div><span class="delta green">-12%</span><span class="subtext">in last 7 Days</span></div></div>
       <div class="fb-charts"><div class="card line-panel"><h2>Cancellation Rate Trend Overtime (%)</h2><div class="line-chart"><canvas id="cancelChart"></canvas></div></div><div class="card line-panel"><h2>No-Show Rate Trend Overtime (%)</h2><div class="line-chart"><canvas id="noShowChart"></canvas></div></div></div>
       <div class="survey-strip" id="feedbackSurveyStrip"><div class="survey"><label>Overall Satisfaction</label><b>4.5/5</b><span class="good">↗ +0.3 Based on 1,476 responses</span></div><div class="survey"><label>Booking Process</label><b>4.3/5</b><span class="good">↗ +0.5 342 feedbacks</span></div><div class="survey"><label>Waiting Time</label><b>3.5/5</b><span class="bad">↘ -2.1% 242 cancellation</span></div><div class="survey"><label>Appointment Experience</label><b>4.5/5</b><span class="good">↗ +0.2 287 feedbacks</span></div><div class="survey"><label>Consultation Quality</label><b>3.75/5</b><span class="bad">↘ -18 Last 30 days</span></div></div>
-      <div class="fb-middle"><div class="card middle-card"><h2>Cancellation Reason Distribution</h2><p class="subtext">Reasons are shown for standard cancellation only, not no-shows</p><div class="donut-layout"><div class="donut"><canvas id="reasonChart"></canvas></div><div class="donut-legend"><div class="legend-row"><span class="swatch" style="background:#9497dd"></span>Emergency / Unforeseen<br>Obligations</div><div class="legend-row"><span class="swatch" style="background:#e76064"></span>Change of Mind</div><div class="legend-row"><span class="swatch" style="background:#474b9e"></span>Financial Issues</div><div class="legend-row"><span class="swatch" style="background:#f2a645"></span>Patient Anxiety<br>/ Resistance</div><div class="legend-row"><span class="swatch" style="background:#fae8c7"></span>Unknown</div></div></div></div><div class="card middle-card"><h2>Complaint Themes Score</h2><div class="themes" id="feedbackThemes"><div class="theme"><span>● &nbsp; Lack of Appointment Slots</span><span class="theme-score">2.5 / 5</span><div class="theme-bar"><span style="width:30%;background:#8b8cdb"></span></div></div><div class="theme"><span>● &nbsp; Booking Systems Issues</span><span class="theme-score">3.7 / 5</span><div class="theme-bar"><span style="width:41%;background:#ffbd58"></span></div></div><div class="theme"><span>● &nbsp; Long Wait Times</span><span class="theme-score">4.0 / 5</span><div class="theme-bar"><span style="width:74%;background:#fa767b"></span></div></div><div class="theme"><span>● &nbsp; Poor Communication</span><span class="theme-score">2.0 / 5</span><div class="theme-bar"><span style="width:46%;background:#f5b84d"></span></div></div><div class="theme"><span>● &nbsp; Insurance Verification Delays</span><span class="theme-score">1.0 / 5</span><div class="theme-bar"><span style="width:13%;background:#8b8cdb"></span></div></div></div></div></div>
+      <div class="fb-middle"><div class="card middle-card"><h2>Cancellation Reason Distribution</h2><p class="subtext">Reasons are shown for standard cancellation only, not no-shows</p><div class="donut-layout"><div class="donut"><canvas id="reasonChart"></canvas></div><div class="donut-legend"><div class="legend-row"><span class="swatch" style="background:#9497dd"></span>Emergency / Unforeseen<br>Obligations</div><div class="legend-row"><span class="swatch" style="background:#e76064"></span>Change of Mind</div><div class="legend-row"><span class="swatch" style="background:#474b9e"></span>Financial Issues</div><div class="legend-row"><span class="swatch" style="background:#f2a645"></span>Patient Anxiety<br>/ Resistance</div><div class="legend-row"><span class="swatch" style="background:#fae8c7"></span>Unknown</div></div></div></div><div class="card middle-card"><h2>Appointment Status Mix</h2><div class="themes" id="feedbackThemes"></div></div></div>
       <div class="insights" id="feedbackInsights"><h2>Key Operational Insights</h2><div class="insight"><span class="insight-icon">ⓘ</span><div><b>High Cancellation Alert</b><p>Dr. Michael Chen shows a 24% cancellation rate, primarily due to schedule conflicts. Consider implementing automated reminders 48 hours before appointments.</p></div></div><div class="insight"><span class="insight-icon">ⓘ</span><div><b>High No-Show Risk Alert</b><p>Forecast data suggests that selected patients may have higher no-show risk in the next appointment cycle. Consider sending personalised reminders or confirmation messages 48 hours before the appointment.</p></div></div><div class="insight green"><span class="insight-icon">↗</span><div><b>Booking Process Improvement</b><p>Booking satisfaction increased by 12% after the recent UX update. Patient feedback highlights the simplified appointment selection flow.</p></div></div></div>
       <p class="disclaimer">All data shown are fictional, anonymised or aggregated for demonstration purposes only.</p>
     </section>
@@ -279,6 +279,7 @@
   <div class="ai-drawer-body" id="aiDrawerBody"></div>
 </aside>
 <div class="chart-hover-tooltip" id="lineChartTooltip"></div>
+<script src="synthetic_operations.js"></script>
 <script>
 
 const DASHBOARD_DESIGN_WIDTH = 1536;
@@ -381,6 +382,114 @@ const feedbackBase={
   ]
 };
 
+let operationalPayload=null;
+let latestFeedbackState=null;
+
+function pct(count,total){return total?Math.round(count/total*1000)/10:0}
+function isoDay(value){return value.toISOString().slice(0,10)}
+function dateLabel(value){return value.toLocaleDateString('en-US',{month:'short',day:'numeric',timeZone:'UTC'})}
+function normaliseFilter(value){return String(value||'all').trim().toLowerCase()}
+
+function operationalRowsForRange(rangeKey,offsetPeriods=0){
+  const controls=Array.from(document.querySelectorAll('[data-scope="feedback"]'));
+  const daysByRange={last_7_days:7,last_30_days:30,last_quarter:90};
+  const days=daysByRange[rangeKey]||7;
+  const end=new Date(Date.UTC(2026,8,15));
+  end.setUTCDate(end.getUTCDate()-days*offsetPeriods);
+  const start=new Date(end);start.setUTCDate(start.getUTCDate()-(days-1));
+  const clinician=normaliseFilter(controls[1].value);
+  const patient=normaliseFilter(controls[2].value);
+  const appointment=normaliseFilter(controls[3].value);
+  const noShowReason=normaliseFilter(controls[4].value);
+  const cancelReason=normaliseFilter(controls[5].value);
+  const rows=operationalPayload.appointments.filter(row=>{
+    if(row.appointment_date<isoDay(start)||row.appointment_date>isoDay(end))return false;
+    if(clinician!=='all'&&normaliseFilter(row.clinician_name)!==clinician)return false;
+    if(patient!=='all'&&normaliseFilter(row.patient_segment)!==patient)return false;
+    if(appointment!=='all'&&normaliseFilter(row.appointment_type)!==appointment)return false;
+    if(noShowReason!=='all reasons'&&row.status==='no_show'&&normaliseFilter(row.no_show_reason)!==noShowReason)return false;
+    if(cancelReason!=='all reasons'&&row.status==='cancelled'&&normaliseFilter(row.cancellation_reason)!==cancelReason)return false;
+    return true;
+  });
+  return{rows,start,end,days};
+}
+
+function operationalSummary(rangeKey,offsetPeriods=0){
+  const {rows,start,end,days}=operationalRowsForRange(rangeKey,offsetPeriods);
+  const counts={completed:0,rescheduled:0,cancelled:0,no_show:0};
+  const byDay={};
+  const reasons=['Emergency / Unforeseen Obligations','Change of Mind','Financial Issues','Patient Anxiety / Resistance','Unknown'];
+  const reasonCounts=Object.fromEntries(reasons.map(reason=>[reason,0]));
+  rows.forEach(row=>{counts[row.status]=(counts[row.status]||0)+1;(byDay[row.appointment_date]??=[]).push(row);if(row.cancellation_reason)reasonCounts[row.cancellation_reason]++});
+  const labels=[],cancelTrend=[],noShowTrend=[],dailyVolume=[];
+  for(let index=0;index<days;index++){
+    const day=new Date(start);day.setUTCDate(start.getUTCDate()+index);
+    const daily=byDay[isoDay(day)]||[];
+    labels.push(dateLabel(day));
+    dailyVolume.push(daily.length);
+    cancelTrend.push(daily.length>=5?pct(daily.filter(row=>row.status==='cancelled').length,daily.length):null);
+    noShowTrend.push(daily.length>=5?pct(daily.filter(row=>row.status==='no_show').length,daily.length):null);
+  }
+  const reasonTotal=Object.values(reasonCounts).reduce((sum,value)=>sum+value,0)||1;
+  const reasonValues=reasons.map(reason=>Math.round(reasonCounts[reason]/reasonTotal*100));
+  reasonValues[0]+=100-reasonValues.reduce((sum,value)=>sum+value,0);
+  return{
+    rows,start,end,labels,dailyVolume,cancelTrend,noShowTrend,reasons:reasonValues,counts,
+    cancelTotal:counts.cancelled,noShowTotal:counts.no_show,
+    cancelRateValue:pct(counts.cancelled,rows.length),noShowRateValue:pct(counts.no_show,rows.length),
+    totalAppointments:rows.length,uniquePatients:new Set(rows.map(row=>row.patient_id)).size,
+    activeClinicians:new Set(rows.map(row=>row.clinician_id)).size
+  };
+}
+
+function buildOperationalFeedbackState(){
+  const rangeKey=document.querySelectorAll('[data-scope="feedback"]')[0].value;
+  const current=operationalSummary(rangeKey,0);
+  const prior=rangeKey==='last_quarter'?null:operationalSummary(rangeKey,1);
+  const delta=(value,baseline)=>Math.round((value-baseline)*10)/10;
+  const rangeLabel=getSelectedLabel('feedback',0);
+  const surveys=[
+    {label:'Matching Appointments',score:current.totalAppointments.toLocaleString(),delta:`${isoDay(current.start)}–${isoDay(current.end)}`,positive:true},
+    {label:'Unique Patients',score:String(current.uniquePatients),delta:'Distinct pseudonymous IDs',positive:true},
+    {label:'Active Clinicians',score:String(current.activeClinicians),delta:'Distinct clinician IDs',positive:true},
+    {label:'Completed Visits',score:String(current.counts.completed),delta:`${pct(current.counts.completed,current.totalAppointments)}% of appointments`,positive:true},
+    {label:'Rescheduled Visits',score:String(current.counts.rescheduled),delta:`${pct(current.counts.rescheduled,current.totalAppointments)}% of appointments`,positive:false}
+  ];
+  const themes=[
+    {label:'Completed',share:pct(current.counts.completed,current.totalAppointments),color:'#8b8cdb'},
+    {label:'Rescheduled',share:pct(current.counts.rescheduled,current.totalAppointments),color:'#ffbd58'},
+    {label:'Cancelled',share:current.cancelRateValue,color:'#fa767b'},
+    {label:'No-show',share:current.noShowRateValue,color:'#f5b84d'}
+  ];
+  const incidentVisible=current.end>=new Date('2026-09-09T00:00:00Z')&&current.start<=new Date('2026-09-12T00:00:00Z');
+  const cancelDelta=prior?delta(current.cancelRateValue,prior.cancelRateValue):null;
+  const insights=[
+    {title:current.totalAppointments<20?'Insufficient evidence for a cohort trend':'Short-term cancellation pattern',copy:current.totalAppointments<20?`Only ${current.totalAppointments} appointments match these filters; do not infer a reliable daily trend. Try a longer date range or all clinicians.`:`${rangeLabel} contains ${current.cancelTotal} cancellations (${current.cancelRateValue}%). ${prior?`${Math.abs(cancelDelta).toFixed(1)} percentage points ${cancelDelta>=0?'above':'below'} the previous non-overlapping period.`:'An earlier 90-day comparison is unavailable.'} ${incidentVisible?'The synthetic reminder incident is visible from Sep 9–12.':''}`,positive:current.totalAppointments>=20&&cancelDelta!==null&&cancelDelta<0},
+    {title:'No-show pattern varies by day',copy:`No-shows total ${current.noShowTotal} (${current.noShowRateValue}%). Daily rates below five appointments are omitted instead of presenting unstable percentages.`,positive:prior!==null&&current.noShowRateValue<=prior.noShowRateValue},
+    {title:'Filters now use appointment-level facts',copy:`The view was recalculated from ${current.totalAppointments.toLocaleString()} matching appointments across ${current.uniquePatients} patients and ${current.activeClinicians} clinicians.`,positive:true}
+  ];
+  return{...current,surveys,themes,insights,rangeLabel,cancelRateDelta:cancelDelta,noShowRateDelta:prior?delta(current.noShowRateValue,prior.noShowRateValue):null,prior};
+}
+
+async function loadOperationalPayload(){
+  try{
+    if(window.PANDION_SYNTHETIC_OPERATIONS){
+      operationalPayload=window.PANDION_SYNTHETIC_OPERATIONS;
+    }else{
+      const response=await fetch('synthetic_operations.json');
+      if(!response.ok)throw new Error(`HTTP ${response.status}`);
+      operationalPayload=await response.json();
+    }
+    const clinicianSelect=document.querySelectorAll('[data-scope="feedback"]')[1];
+    clinicianSelect.innerHTML='<option value="all">All Clinicians</option>'+operationalPayload.clinicians.map(item=>`<option value="${item.name.toLowerCase()}">${item.name}</option>`).join('');
+    const meta=operationalPayload.metadata;
+    document.getElementById('syntheticDataSummary').textContent=`Synthetic database · ${meta.patient_count} patients · ${meta.clinician_count} clinicians · ${meta.appointment_count.toLocaleString()} appointments · ${meta.history_days} days`;
+    applyFeedbackState();
+  }catch(error){
+    document.getElementById('syntheticDataSummary').textContent='Synthetic dataset fallback · detailed operations file could not be loaded';
+  }
+}
+
 function makeCharts(){
  charts.appointment=new Chart(document.getElementById('appointmentChart'),{type:'bar',data:{labels:overviewBase.labels,datasets:[{label:'Completed',data:overviewBase.appointmentChart.completed.slice(),backgroundColor:purple},{label:'Rescheduled',data:overviewBase.appointmentChart.rescheduled.slice(),backgroundColor:lightPurple},{label:'Cancelled',data:overviewBase.appointmentChart.cancelled.slice(),backgroundColor:orange}]},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},scales:{x:{stacked:true,grid:{display:false}},y:{stacked:true,beginAtZero:true,max:1600,ticks:{stepSize:200},grid}},plugins:{legend:{position:'bottom',labels:{usePointStyle:true,pointStyle:'circle',padding:20}}}}});
  charts.profession=new Chart(document.getElementById('professionChart'),{type:'bar',plugins:[professionTargetLines],data:{labels:overviewBase.profession.labels,datasets:[{label:'Utilisation rate',data:overviewBase.profession.values.slice(),backgroundColor:overviewBase.profession.colors,borderRadius:0,barThickness:18}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,layout:{padding:{top:4}},scales:{x:{max:100,title:{display:true,text:'Utilisation Rate (%)'},grid:{color:'#edf0f6',borderDash:[4,4]}},y:{grid:{display:false}}},plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'Utilisation: '+c.raw+'%'}}}}});
@@ -389,7 +498,7 @@ function makeCharts(){
  charts.noShow=new Chart(document.getElementById('noShowChart'),{type:'line',data:{labels:feedbackBase.labels,datasets:[{label:'No-show rate',data:feedbackBase.noShowTrend.slice(),borderColor:'#9899da',backgroundColor:'#9899da',pointBackgroundColor:['#9899da','#9899da','#9899da','#9899da','#9899da','#9899da','#f67a78','#f67a78'],pointStyle:'rectRounded',pointRadius:11,pointHoverRadius:13,hitRadius:28,pointBorderWidth:2.4,pointBorderColor:'#ffffff',borderWidth:2,tension:0,fill:false}]},options:trendOptions(50)});
  charts.reasons=new Chart(document.getElementById('reasonChart'),{type:'doughnut',data:{labels:['Emergency / Unforeseen Obligations','Change of Mind','Financial Issues','Patient Anxiety / Resistance','Unknown'],datasets:[{data:feedbackBase.reasons.slice(),backgroundColor:['#9497dd','#e76064','#474b9e','#f2a645','#fae8c7'],borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,cutout:'62%',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.label+': '+c.raw+'%'}}}}});
 }
-function trendOptions(max){return {responsive:true,maintainAspectRatio:false,layout:{padding:{top:6,right:3,left:2,bottom:0}},interaction:{mode:'nearest',intersect:false},scales:{x:{grid:{display:false},ticks:{font:{size:12,weight:'500'},padding:7,color:(ctx)=>ctx.index>5?'#f26d6e':'#5d6880'}},y:{beginAtZero:true,max:max,ticks:{stepSize:max===90?20:10,font:{size:12,weight:'500'},padding:7},grid:{color:'#f0f2f7'}}},plugins:{legend:{display:false},tooltip:{enabled:false}}}}
+function trendOptions(max){return {responsive:true,maintainAspectRatio:false,layout:{padding:{top:6,right:3,left:2,bottom:0}},interaction:{mode:'nearest',intersect:false},scales:{x:{grid:{display:false},ticks:{font:{size:12,weight:'500'},padding:7,maxTicksLimit:8,color:'#5d6880'}},y:{beginAtZero:true,max:max,ticks:{stepSize:max===90?20:10,font:{size:12,weight:'500'},padding:7},grid:{color:'#f0f2f7'}}},plugins:{legend:{display:false},tooltip:{enabled:false}}}}
 function clamp(value,min,max){return Math.min(Math.max(value,min),max)}
 function average(values){return values.reduce((sum,value)=>sum+value,0)/values.length}
 function formatCurrency(value){return '$ '+Math.round(value)}
@@ -417,12 +526,12 @@ function renderFeedbackSurveys(cards){
   document.getElementById('feedbackSurveyStrip').innerHTML=cards.map(card=>`<div class="survey"><label>${card.label}</label><b>${card.score}</b><span class="${card.positive?'good':'bad'}">${card.delta}</span></div>`).join('');
 }
 function renderFeedbackThemes(themes){
-  document.getElementById('feedbackThemes').innerHTML=themes.map(theme=>`<div class="theme"><span>● &nbsp; ${theme.label}</span><span class="theme-score">${theme.score.toFixed(1)} / 5</span><div class="theme-bar"><span style="width:${Math.round(theme.score/5*100)}%;background:${theme.color}"></span></div></div>`).join('');
+  document.getElementById('feedbackThemes').innerHTML=themes.map(theme=>`<div class="theme"><span>● &nbsp; ${theme.label}</span><span class="theme-score">${theme.share===undefined?theme.score.toFixed(1)+' / 5':theme.share+'%'}</span><div class="theme-bar"><span style="width:${Math.round(theme.share===undefined?theme.score/5*100:theme.share)}%;background:${theme.color}"></span></div></div>`).join('');
 }
 function renderFeedbackInsights(items){
   const scenarios=['feedback-cancellation','feedback-noshow','feedback-booking'];
-  const sourceCount=[286,624,1480][getSelectedIndices('feedback')[0]];
-  document.getElementById('feedbackInsights').innerHTML=`<div class="insights-head"><div class="insights-title"><h2>Key Operational Insights</h2><span class="ai-badge">✦ AI ANALYSIS · ${sourceCount.toLocaleString()} SOURCES</span></div><button class="ai-generate" type="button" data-ai-scenario="feedback-overview">Generate evidence summary</button></div>`+items.map((item,index)=>`<div class="insight${item.positive?' green':''}"><span class="insight-icon">${item.positive?'↗':'ⓘ'}</span><div class="insight-copy"><b>${item.title}</b><p>${item.copy}</p></div><button class="insight-evidence" type="button" data-ai-scenario="${scenarios[index]}">View evidence →</button></div>`).join('');
+  const sourceCount=latestFeedbackState?.totalAppointments??[286,624,1480][getSelectedIndices('feedback')[0]];
+  document.getElementById('feedbackInsights').innerHTML=`<div class="insights-head"><div class="insights-title"><h2>Key Operational Insights</h2><span class="ai-badge">✦ ${operationalPayload?'RULE-BASED · '+sourceCount.toLocaleString()+' APPOINTMENTS':'ILLUSTRATIVE PREVIEW'}</span></div><button class="ai-generate" type="button" data-ai-scenario="feedback-overview">Generate evidence summary</button></div>`+items.map((item,index)=>`<div class="insight${item.positive?' green':''}"><span class="insight-icon">${item.positive?'↗':'ⓘ'}</span><div class="insight-copy"><b>${item.title}</b><p>${item.copy}</p></div><button class="insight-evidence" type="button" data-ai-scenario="${scenarios[index]}">View evidence →</button></div>`).join('');
 }
 
 function buildOverviewState(){
@@ -571,6 +680,7 @@ function applyClinicianState(){
 }
 
 function buildFeedbackState(){
+  if(operationalPayload)return buildOperationalFeedbackState();
   const [rangeIndex,clinicianIndex,patientIndex,appointmentIndex,noShowReasonIndex,cancelReasonIndex]=getSelectedIndices('feedback');
   const rangeCountScale=[1,2.05,5.4][rangeIndex];
   const rangeRateShift=[0,1,2][rangeIndex];
@@ -612,26 +722,35 @@ function buildFeedbackState(){
 
 function applyFeedbackState(){
   const state=buildFeedbackState();
+  latestFeedbackState=state;
+  const lowSample=Boolean(operationalPayload&&state.totalAppointments<20);
   document.getElementById('cancelTotal').textContent=state.cancelTotal.toLocaleString();
   document.getElementById('noShowTotal').textContent=state.noShowTotal.toLocaleString();
-  document.getElementById('cancelRate').textContent=state.cancelRateValue+'%';
-  document.getElementById('noShowRate').textContent=state.noShowRateValue+'%';
+  document.getElementById('cancelRate').textContent=lowSample?'—':state.cancelRateValue+'%';
+  document.getElementById('noShowRate').textContent=lowSample?'—':state.noShowRateValue+'%';
   const deltaEls=document.querySelectorAll('.fb-kpi .delta');
   const subtextEls=document.querySelectorAll('.fb-kpi .subtext');
-  deltaEls[0].textContent='+'+Math.max(1,state.cancelRateValue-feedbackBase.cancelRate+3)+'%';
-  deltaEls[0].classList.add('red');
-  deltaEls[1].textContent=(state.noShowRateValue<=feedbackBase.noShowRate?'-':'+' )+Math.abs(state.noShowRateValue-feedbackBase.noShowRate+1)+'%';
-  deltaEls[1].classList.toggle('green',state.noShowRateValue<=feedbackBase.noShowRate);
-  deltaEls[1].classList.toggle('red',state.noShowRateValue>feedbackBase.noShowRate);
-  deltaEls[2].textContent=(state.cancelRateValue>=feedbackBase.cancelRate?'+':'-')+Math.abs(state.cancelRateValue-feedbackBase.cancelRate||3)+'%';
-  deltaEls[2].classList.add('red');
-  deltaEls[3].textContent=(state.noShowRateValue<=feedbackBase.noShowRate?'-':'+' )+Math.abs(state.noShowRateValue-feedbackBase.noShowRate||2)+'%';
-  deltaEls[3].classList.toggle('green',state.noShowRateValue<=feedbackBase.noShowRate);
-  deltaEls[3].classList.toggle('red',state.noShowRateValue>feedbackBase.noShowRate);
-  subtextEls.forEach(el=>{el.textContent='in '+state.rangeLabel});
+  const cancelDelta=operationalPayload?state.cancelRateDelta:Math.max(1,state.cancelRateValue-feedbackBase.cancelRate+3);
+  const noShowDelta=operationalPayload?state.noShowRateDelta:(state.noShowRateValue-feedbackBase.noShowRate+1);
+  const priorCancelCount=state.prior?.cancelTotal??0;
+  const priorNoShowCount=state.prior?.noShowTotal??0;
+  deltaEls[0].textContent=operationalPayload?(state.prior?`${state.cancelTotal-priorCancelCount>=0?'+':''}${state.cancelTotal-priorCancelCount} vs prior`:'No prior 90-day data'):((cancelDelta>=0?'+':'')+Number(cancelDelta).toFixed(1)+' pp');
+  deltaEls[0].classList.toggle('green',cancelDelta<0);deltaEls[0].classList.toggle('red',cancelDelta>=0);
+  deltaEls[1].textContent=operationalPayload?(state.prior?`${state.noShowTotal-priorNoShowCount>=0?'+':''}${state.noShowTotal-priorNoShowCount} vs prior`:'No prior 90-day data'):((noShowDelta>=0?'+':'')+Number(noShowDelta).toFixed(1)+' pp');
+  deltaEls[1].classList.toggle('green',noShowDelta!==null&&noShowDelta<=0);deltaEls[1].classList.toggle('red',noShowDelta!==null&&noShowDelta>0);
+  deltaEls[2].textContent=lowSample?'Insufficient evidence':cancelDelta===null?'No prior 90-day data':((cancelDelta>=0?'+':'')+Number(cancelDelta).toFixed(1)+' pp');
+  deltaEls[2].classList.toggle('green',cancelDelta<0);deltaEls[2].classList.toggle('red',cancelDelta>=0);
+  deltaEls[3].textContent=lowSample?'Insufficient evidence':noShowDelta===null?'No prior 90-day data':((noShowDelta>=0?'+':'')+Number(noShowDelta).toFixed(1)+' pp');
+  deltaEls[3].classList.toggle('green',noShowDelta!==null&&noShowDelta<=0);deltaEls[3].classList.toggle('red',noShowDelta!==null&&noShowDelta>0);
+  subtextEls.forEach(el=>{el.textContent='in '+state.rangeLabel+(state.prior||!operationalPayload?' · vs prior period':'')});
+  if(state.labels){charts.cancel.data.labels=state.labels;charts.noShow.data.labels=state.labels;}
   charts.cancel.data.datasets[0].data=state.cancelTrend;
+  charts.cancel.data.datasets[0].pointRadius=state.labels?.length>30?2:state.labels?.length>7?4:7;
+  charts.cancel.options.scales.y.max=Math.max(20,Math.ceil((Math.max(...state.cancelTrend)+5)/5)*5);
   charts.cancel.update();
   charts.noShow.data.datasets[0].data=state.noShowTrend;
+  charts.noShow.data.datasets[0].pointRadius=state.labels?.length>30?2:state.labels?.length>7?4:7;
+  charts.noShow.options.scales.y.max=Math.max(15,Math.ceil((Math.max(...state.noShowTrend)+4)/5)*5);
   charts.noShow.update();
   charts.reasons.data.datasets[0].data=state.reasons;
   charts.reasons.update();
@@ -696,7 +815,8 @@ function attachReliableLineTooltip(chart) {
       const pointIndex = activePoint.index;
       const month = chart.data.labels[pointIndex];
       const value = chart.data.datasets[0].data[pointIndex];
-      tooltip.innerHTML = '<b>' + month + '</b><span>' + metric + ': ' + value + '%</span>';
+      const sample=latestFeedbackState?.dailyVolume?.[pointIndex];
+      tooltip.innerHTML = '<b>' + month + '</b><span>' + metric + ': ' + value + '%' + (sample===undefined?'':' · '+sample+' appointments') + '</span>';
       tooltip.classList.add('show');
       positionTooltip(event, pointIndex);
       chart.setActiveElements([{ datasetIndex: activePoint.datasetIndex, index: pointIndex }]);
@@ -869,6 +989,17 @@ async function requestRagInsight(scenario){
 
 function portfolioSnapshotFor(scenario){
   if(scenario==='feedback-overview'){
+    const filters=feedbackFiltersForApi();
+    if(filters.start_date!=='2026-09-09'||filters.end_date!=='2026-09-15'||filters.clinician!=='all'||filters.patient_segment!=='all'||filters.appointment_type!=='all'){
+      return{
+        scenario,eyebrow:'Static portfolio limitation',title:'No RAG snapshot for these feedback filters',
+        summary:'The public page recalculates appointment KPIs from synthetic appointment records. Its cited RAG feedback result was captured only for the default seven-day, all-patient filters. To generate new cited feedback themes, run the local RAG service.',
+        signals:['No feedback theme has been inferred for the changed filter.','The operational charts and the 200-record RAG feedback corpus are separate synthetic datasets.','The local service applies structured filters and returns Insufficient evidence when fewer than five feedback records match.'],
+        recommendation:'Use the default filters to inspect the verified snapshot, or run the local service for a new analysis.',
+        sop:'Patient feedback review',confidence:0,evidence:[],
+        retrieval_method:'No retrieval on this static page',collection:'pandion_demo',generation_mode:'unavailable_snapshot',model:'not called'
+      };
+    }
     return{
       scenario,
       eyebrow:'Verified RAG portfolio snapshot',
@@ -974,6 +1105,7 @@ if(location.hostname.endsWith('github.io')||new URLSearchParams(location.search)
 applyOverviewState();
 applyClinicianState();
 applyFeedbackState();
+loadOperationalPayload();
 attachReliableLineTooltip(charts.cancel);
 attachReliableLineTooltip(charts.noShow);
 </script>
