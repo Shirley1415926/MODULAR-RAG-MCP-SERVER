@@ -39,6 +39,8 @@
       feedback.forEach(r=>{if(!groups.has(r.theme))groups.set(r.theme,{key:r.theme,label:r.theme_label,sentiment:r.sentiment,records:[]});groups.get(r.theme).records.push(r);});
       return {total:feedback.length,insufficient:feedback.length<5,themes:[...groups.values()].map(t=>({...t,count:t.records.length,share:rate(t.records.length,feedback.length)})).sort((a,b)=>b.count-a.count||a.key.localeCompare(b.key))};
     }
+    function lifecycle(f){return (data.lifecycle_events||[]).filter(e=>e.date>=f.start&&e.date<=f.end&&(!f.role||f.role==='All Roles'||e.role===f.role));}
+    function sparkline(f,key){return buckets(f).map(b=>({date:b.end,value:stats({...f,start:add(b.end,-6),end:b.end})[key]}));}
     function reasons(f,kind,reason){return rows(f).filter(a=>a.status===kind&&(!reason||reason==='All Reasons'||a[kind==='cancelled'?'cancellation_reason':'no_show_reason']===reason));}
     function capacity(f){
       const offered=slots(f), booked=offered.filter(s=>occupied.has(s.slot_id)), free=offered.filter(s=>!occupied.has(s.slot_id));
@@ -57,7 +59,7 @@
       const atRisk=new Set([...priority,...waiting,...followups].map(r=>r.patient_id)).size;
       return {roster,offered,booked,free,referrals,priority,waiting,followups,atRisk,total:sum(offered,'duration_minutes'),used:sum(booked,'duration_minutes'),compatible};
     }
-    return {data,anchor,range,rows,slots,surveys,stats,buckets,themes,reasons,capacity};
+    return {data,anchor,range,rows,slots,surveys,stats,buckets,themes,reasons,capacity,lifecycle,sparkline};
   }
   const api={create,add,rate,sum,mean};
   if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.PandionModel=api;
