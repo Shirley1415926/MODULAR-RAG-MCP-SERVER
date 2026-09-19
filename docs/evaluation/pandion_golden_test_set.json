@@ -1,0 +1,27 @@
+{
+  "name": "Pandion retrieval golden set v1",
+  "description": "Twenty manually labelled operational questions using a mix of exact wording and realistic semantic paraphrases. Patient data is synthetic.",
+  "top_k": 5,
+  "cases": [
+    {"id":"RET-001","query":"What actions should operations take when weekly no-show rates exceed the threshold?","expected_ids":["SOP-001"],"allowed_record_types":["sop"]},
+    {"id":"RET-002","query":"A parent cannot attend because caregiving fell through. What alternatives can we offer?","expected_ids":["SOP-002"],"allowed_record_types":["sop"]},
+    {"id":"RET-003","query":"Can an open calendar override a provider qualification mismatch?","expected_ids":["SOP-003"],"allowed_record_types":["sop"]},
+    {"id":"RET-004","query":"When should an urgent referral be escalated to the clinical lead?","expected_ids":["SOP-004"],"allowed_record_types":["sop"]},
+    {"id":"RET-005","query":"Demand exists, yet provider calendars are empty. What should operations compare?","expected_ids":["SOP-005"],"allowed_record_types":["sop"]},
+    {"id":"RET-006","query":"How should recurring patient feedback themes be reported safely?","expected_ids":["SOP-006"],"allowed_record_types":["sop"]},
+    {"id":"RET-007","query":"Could the money chart drop for an administrative reason rather than lower demand?","expected_ids":["POL-001","EVT-103"],"allowed_record_types":["policy","operational_event"]},
+    {"id":"RET-008","query":"When does the dashboard count somebody as a new patient?","expected_ids":["POL-002"],"allowed_record_types":["policy"]},
+    {"id":"RET-009","query":"What caused text notifications to reach people late?","expected_ids":["EVT-101"],"allowed_record_types":["operational_event"]},
+    {"id":"RET-010","query":"Why was after-17:00 appointment capacity reduced?","expected_ids":["EVT-102"],"allowed_record_types":["operational_event"]},
+    {"id":"RET-011","query":"Why were already delivered visits temporarily missing from billable income?","expected_ids":["EVT-103"],"allowed_record_types":["operational_event"]},
+    {"id":"RET-012","query":"Why did adolescent time-to-match increase this week?","expected_ids":["EVT-104"],"allowed_record_types":["operational_event"]},
+    {"id":"RET-013","query":"Which referral needs a California adolescent specialist and Spanish language support?","expected_ids":["REF-501"],"allowed_record_types":["referral_constraint"]},
+    {"id":"RET-014","query":"Which person must stay with their existing provider and can only attend two mornings?","expected_ids":["REF-502"],"allowed_record_types":["referral_constraint"]},
+    {"id":"RET-015","query":"Which routine anxiety referral asks for evening telehealth?","expected_ids":["REF-503"],"allowed_record_types":["referral_constraint"]},
+    {"id":"RET-016","query":"Who can support a teenager with anxiety in Mandarin?","expected_ids":["CLN-601"],"allowed_record_types":["clinician_profile"]},
+    {"id":"RET-017","query":"Which clinician provides therapy in Spanish but has no near-term openings?","expected_ids":["CLN-602"],"allowed_record_types":["clinician_profile"]},
+    {"id":"RET-018","query":"Who can handle adult prescriptions and has early-week morning space?","expected_ids":["CLN-603"],"allowed_record_types":["clinician_profile"]},
+    {"id":"RET-019","query":"Which no-show was caused by confusion about the time zone in the confirmation?","expected_ids":["NS-402"],"allowed_record_types":["no_show_note"]},
+    {"id":"RET-020","query":"Which person paused booking after learning care would cost more than expected?","expected_ids":["CAN-303"],"allowed_record_types":["cancellation_note"]}
+  ]
+}

@@ -7,12 +7,17 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Union
 
 import yaml
+from dotenv import load_dotenv
 
 # ---------------------------------------------------------------------------
 # Repo root & path resolution
 # ---------------------------------------------------------------------------
 # Anchored to this file's location: <repo>/src/core/settings.py → parents[2]
 REPO_ROOT: Path = Path(__file__).resolve().parents[2]
+
+# Load local secrets without overriding variables explicitly supplied by the shell.
+# The repository's .gitignore excludes this file.
+load_dotenv(REPO_ROOT / ".env")
 
 # Default absolute path to settings.yaml
 DEFAULT_SETTINGS_PATH: Path = REPO_ROOT / "config" / "settings.yaml"

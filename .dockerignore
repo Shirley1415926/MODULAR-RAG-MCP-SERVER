@@ -1,0 +1,14 @@
+.git
+.github
+.agents
+.venv
+__pycache__
+*.pyc
+.env
+.env.*
+config/settings.yaml
+data
+tests
+docs
+integrations
+deployment/pandion_data/source

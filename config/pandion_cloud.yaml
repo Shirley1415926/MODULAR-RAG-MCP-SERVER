@@ -1,0 +1,48 @@
+llm:
+  provider: "deepseek"
+  model: "deepseek-chat"
+  base_url: "https://api.deepseek.com"
+  temperature: 0.0
+  max_tokens: 4096
+
+# The cloud service uses the packaged BM25 index. These embedding values satisfy
+# the shared settings schema but no embedding client is created in sparse-only mode.
+embedding:
+  provider: "ollama"
+  model: "nomic-embed-text"
+  dimensions: 768
+  base_url: "http://127.0.0.1:11434"
+
+vector_store:
+  provider: "chroma"
+  persist_directory: "./data/db/chroma"
+  collection_name: "pandion_demo"
+
+retrieval:
+  dense_top_k: 20
+  sparse_top_k: 20
+  fusion_top_k: 10
+  rrf_k: 60
+
+rerank:
+  enabled: false
+  provider: "none"
+  model: "none"
+  top_k: 5
+
+evaluation:
+  enabled: false
+  provider: "custom"
+  metrics: []
+
+observability:
+  log_level: "INFO"
+  trace_enabled: false
+  trace_file: "./logs/traces.jsonl"
+  structured_logging: true
+
+ingestion:
+  chunk_size: 1000
+  chunk_overlap: 200
+  splitter: "recursive"
+  batch_size: 100

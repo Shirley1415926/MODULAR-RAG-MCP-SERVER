@@ -1,0 +1,858 @@
+{
+  "benchmark": "Pandion retrieval golden set v1",
+  "case_count": 20,
+  "top_k": 5,
+  "routing": "record type filtering before RRF fusion",
+  "metrics": {
+    "dense": {
+      "hit_rate_at_5": 1.0,
+      "mrr_at_5": 0.8833,
+      "mean_latency_ms": 77.53,
+      "p95_latency_ms": 77.12
+    },
+    "bm25": {
+      "hit_rate_at_5": 0.85,
+      "mrr_at_5": 0.825,
+      "mean_latency_ms": 4.02,
+      "p95_latency_ms": 4.32
+    },
+    "raw_hybrid": {
+      "hit_rate_at_5": 0.95,
+      "mrr_at_5": 0.85,
+      "mean_latency_ms": 72.77,
+      "p95_latency_ms": 79.72
+    },
+    "hybrid": {
+      "hit_rate_at_5": 1.0,
+      "mrr_at_5": 0.8958,
+      "mean_latency_ms": 77.54,
+      "p95_latency_ms": 77.13
+    }
+  },
+  "cases": [
+    {
+      "id": "RET-001",
+      "query": "What actions should operations take when weekly no-show rates exceed the threshold?",
+      "expected_ids": [
+        "SOP-001"
+      ],
+      "dense": {
+        "rank": 1,
+        "top_ids": [
+          "SOP-001",
+          "SOP-005",
+          "SOP-002",
+          "SOP-004",
+          "SOP-006"
+        ],
+        "latency_ms": 142.34
+      },
+      "bm25": {
+        "rank": 1,
+        "top_ids": [
+          "SOP-001",
+          "SOP-004"
+        ],
+        "latency_ms": 3.99
+      },
+      "raw_hybrid": {
+        "rank": 1,
+        "top_ids": [
+          "SOP-001",
+          "SOP-004",
+          "SOP-005",
+          "SOP-002",
+          "SOP-006"
+        ],
+        "latency_ms": 79.72
+      },
+      "hybrid": {
+        "rank": 1,
+        "top_ids": [
+          "SOP-001",
+          "SOP-004",
+          "SOP-005",
+          "SOP-002",
+          "SOP-006"
+        ],
+        "latency_ms": 142.36
+      }
+    },
+    {
+      "id": "RET-002",
+      "query": "A parent cannot attend because caregiving fell through. What alternatives can we offer?",
+      "expected_ids": [
+        "SOP-002"
+      ],
+      "dense": {
+        "rank": 1,
+        "top_ids": [
+          "SOP-002"
+        ],
+        "latency_ms": 70.52
+      },
+      "bm25": {
+        "rank": 1,
+        "top_ids": [
+          "SOP-002",
+          "SOP-001"
+        ],
+        "latency_ms": 4.32
+      },
+      "raw_hybrid": {
+        "rank": 1,
+        "top_ids": [
+          "SOP-002",
+          "SOP-001"
+        ],
+        "latency_ms": 77.62
+      },
+      "hybrid": {
+        "rank": 1,
+        "top_ids": [
+          "SOP-002",
+          "SOP-001"
+        ],
+        "latency_ms": 70.53
+      }
+    },
+    {
+      "id": "RET-003",
+      "query": "Can an open calendar override a provider qualification mismatch?",
+      "expected_ids": [
+        "SOP-003"
+      ],
+      "dense": {
+        "rank": 3,
+        "top_ids": [
+          "SOP-005",
+          "SOP-004",
+          "SOP-003"
+        ],
+        "latency_ms": 69.3
+      },
+      "bm25": {
+        "rank": null,
+        "top_ids": [
+          "SOP-005",
+          "SOP-001"
+        ],
+        "latency_ms": 3.31
+      },
+      "raw_hybrid": {
+        "rank": 3,
+        "top_ids": [
+          "SOP-005",
+          "SOP-004",
+          "SOP-003",
+          "SOP-001"
+        ],
+        "latency_ms": 75.67
+      },
+      "hybrid": {
+        "rank": 4,
+        "top_ids": [
+          "SOP-005",
+          "SOP-001",
+          "SOP-004",
+          "SOP-003"
+        ],
+        "latency_ms": 69.31
+      }
+    },
+    {
+      "id": "RET-004",
+      "query": "When should an urgent referral be escalated to the clinical lead?",
+      "expected_ids": [
+        "SOP-004"
+      ],
+      "dense": {
+        "rank": 1,
+        "top_ids": [
+          "SOP-004",
+          "SOP-003",
+          "SOP-005",
+          "SOP-002",
+          "SOP-001"
+        ],
+        "latency_ms": 69.87
+      },
+      "bm25": {
+        "rank": 1,
+        "top_ids": [
+          "SOP-004",
+          "SOP-003"
+        ],
+        "latency_ms": 3.34
+      },
+      "raw_hybrid": {
+        "rank": 1,
+        "top_ids": [
+          "SOP-004",
+          "SOP-003",
+          "SOP-005",
+          "SOP-002",
+          "SOP-001"
+        ],
+        "latency_ms": 82.65
+      },
+      "hybrid": {
+        "rank": 1,
+        "top_ids": [
+          "SOP-004",
+          "SOP-003",
+          "SOP-005",
+          "SOP-002",
+          "SOP-001"
+        ],
+        "latency_ms": 69.88
+      }
+    },
+    {
+      "id": "RET-005",
+      "query": "Demand exists, yet provider calendars are empty. What should operations compare?",
+      "expected_ids": [
+        "SOP-005"
+      ],
+      "dense": {
+        "rank": 3,
+        "top_ids": [
+          "SOP-001",
+          "SOP-004",
+          "SOP-005"
+        ],
+        "latency_ms": 75.38
+      },
+      "bm25": {
+        "rank": 2,
+        "top_ids": [
+          "SOP-004",
+          "SOP-005",
+          "SOP-001"
+        ],
+        "latency_ms": 4.25
+      },
+      "raw_hybrid": {
+        "rank": 3,
+        "top_ids": [
+          "SOP-004",
+          "SOP-001",
+          "SOP-005"
+        ],
+        "latency_ms": 69.37
+      },
+      "hybrid": {
+        "rank": 3,
+        "top_ids": [
+          "SOP-004",
+          "SOP-001",
+          "SOP-005"
+        ],
+        "latency_ms": 75.39
+      }
+    },
+    {
+      "id": "RET-006",
+      "query": "How should recurring patient feedback themes be reported safely?",
+      "expected_ids": [
+        "SOP-006"
+      ],
+      "dense": {
+        "rank": 1,
+        "top_ids": [
+          "SOP-006",
+          "SOP-001",
+          "SOP-005",
+          "SOP-003",
+          "SOP-002"
+        ],
+        "latency_ms": 74.45
+      },
+      "bm25": {
+        "rank": 1,
+        "top_ids": [
+          "SOP-006",
+          "SOP-005"
+        ],
+        "latency_ms": 3.84
+      },
+      "raw_hybrid": {
+        "rank": 1,
+        "top_ids": [
+          "SOP-006",
+          "SOP-005",
+          "SOP-001"
+        ],
+        "latency_ms": 76.48
+      },
+      "hybrid": {
+        "rank": 1,
+        "top_ids": [
+          "SOP-006",
+          "SOP-005",
+          "SOP-001",
+          "SOP-003",
+          "SOP-002"
+        ],
+        "latency_ms": 74.46
+      }
+    },
+    {
+      "id": "RET-007",
+      "query": "Could the money chart drop for an administrative reason rather than lower demand?",
+      "expected_ids": [
+        "EVT-103",
+        "POL-001"
+      ],
+      "dense": {
+        "rank": 1,
+        "top_ids": [
+          "POL-001",
+          "EVT-103",
+          "EVT-101",
+          "POL-002",
+          "EVT-102"
+        ],
+        "latency_ms": 76.22
+      },
+      "bm25": {
+        "rank": 1,
+        "top_ids": [
+          "EVT-103",
+          "POL-001"
+        ],
+        "latency_ms": 5.16
+      },
+      "raw_hybrid": {
+        "rank": 1,
+        "top_ids": [
+          "POL-001",
+          "EVT-103",
+          "EVT-101",
+          "POL-002",
+          "EVT-102"
+        ],
+        "latency_ms": 71.66
+      },
+      "hybrid": {
+        "rank": 1,
+        "top_ids": [
+          "POL-001",
+          "EVT-103",
+          "EVT-101",
+          "POL-002",
+          "EVT-102"
+        ],
+        "latency_ms": 76.23
+      }
+    },
+    {
+      "id": "RET-008",
+      "query": "When does the dashboard count somebody as a new patient?",
+      "expected_ids": [
+        "POL-002"
+      ],
+      "dense": {
+        "rank": 1,
+        "top_ids": [
+          "POL-002",
+          "POL-001"
+        ],
+        "latency_ms": 72.72
+      },
+      "bm25": {
+        "rank": 1,
+        "top_ids": [
+          "POL-002",
+          "POL-001"
+        ],
+        "latency_ms": 3.81
+      },
+      "raw_hybrid": {
+        "rank": 1,
+        "top_ids": [
+          "POL-002",
+          "POL-001"
+        ],
+        "latency_ms": 71.56
+      },
+      "hybrid": {
+        "rank": 1,
+        "top_ids": [
+          "POL-002",
+          "POL-001"
+        ],
+        "latency_ms": 72.73
+      }
+    },
+    {
+      "id": "RET-009",
+      "query": "What caused text notifications to reach people late?",
+      "expected_ids": [
+        "EVT-101"
+      ],
+      "dense": {
+        "rank": 1,
+        "top_ids": [
+          "EVT-101"
+        ],
+        "latency_ms": 74.7
+      },
+      "bm25": {
+        "rank": null,
+        "top_ids": [
+          "EVT-102"
+        ],
+        "latency_ms": 4.09
+      },
+      "raw_hybrid": {
+        "rank": 1,
+        "top_ids": [
+          "EVT-101",
+          "EVT-102"
+        ],
+        "latency_ms": 71.08
+      },
+      "hybrid": {
+        "rank": 1,
+        "top_ids": [
+          "EVT-101",
+          "EVT-102"
+        ],
+        "latency_ms": 74.71
+      }
+    },
+    {
+      "id": "RET-010",
+      "query": "Why was after-17:00 appointment capacity reduced?",
+      "expected_ids": [
+        "EVT-102"
+      ],
+      "dense": {
+        "rank": 1,
+        "top_ids": [
+          "EVT-102"
+        ],
+        "latency_ms": 74.86
+      },
+      "bm25": {
+        "rank": 1,
+        "top_ids": [
+          "EVT-102"
+        ],
+        "latency_ms": 4.28
+      },
+      "raw_hybrid": {
+        "rank": null,
+        "top_ids": [],
+        "latency_ms": 69.26
+      },
+      "hybrid": {
+        "rank": 1,
+        "top_ids": [
+          "EVT-102"
+        ],
+        "latency_ms": 74.87
+      }
+    },
+    {
+      "id": "RET-011",
+      "query": "Why were already delivered visits temporarily missing from billable income?",
+      "expected_ids": [
+        "EVT-103"
+      ],
+      "dense": {
+        "rank": 2,
+        "top_ids": [
+          "EVT-101",
+          "EVT-103",
+          "EVT-102"
+        ],
+        "latency_ms": 75.53
+      },
+      "bm25": {
+        "rank": null,
+        "top_ids": [
+          "EVT-102"
+        ],
+        "latency_ms": 3.51
+      },
+      "raw_hybrid": {
+        "rank": 3,
+        "top_ids": [
+          "EVT-102",
+          "EVT-101",
+          "EVT-103"
+        ],
+        "latency_ms": 70.08
+      },
+      "hybrid": {
+        "rank": 3,
+        "top_ids": [
+          "EVT-102",
+          "EVT-101",
+          "EVT-103"
+        ],
+        "latency_ms": 75.54
+      }
+    },
+    {
+      "id": "RET-012",
+      "query": "Why did adolescent time-to-match increase this week?",
+      "expected_ids": [
+        "EVT-104"
+      ],
+      "dense": {
+        "rank": 1,
+        "top_ids": [
+          "EVT-104",
+          "EVT-102"
+        ],
+        "latency_ms": 76.77
+      },
+      "bm25": {
+        "rank": 1,
+        "top_ids": [
+          "EVT-104",
+          "EVT-102"
+        ],
+        "latency_ms": 4.24
+      },
+      "raw_hybrid": {
+        "rank": 1,
+        "top_ids": [
+          "EVT-104",
+          "EVT-102"
+        ],
+        "latency_ms": 70.79
+      },
+      "hybrid": {
+        "rank": 1,
+        "top_ids": [
+          "EVT-104",
+          "EVT-102"
+        ],
+        "latency_ms": 76.78
+      }
+    },
+    {
+      "id": "RET-013",
+      "query": "Which referral needs a California adolescent specialist and Spanish language support?",
+      "expected_ids": [
+        "REF-501"
+      ],
+      "dense": {
+        "rank": 1,
+        "top_ids": [
+          "REF-501",
+          "REF-503",
+          "REF-502"
+        ],
+        "latency_ms": 74.62
+      },
+      "bm25": {
+        "rank": 1,
+        "top_ids": [
+          "REF-501",
+          "REF-503"
+        ],
+        "latency_ms": 4.19
+      },
+      "raw_hybrid": {
+        "rank": 1,
+        "top_ids": [
+          "REF-501",
+          "REF-503",
+          "REF-502"
+        ],
+        "latency_ms": 71.29
+      },
+      "hybrid": {
+        "rank": 1,
+        "top_ids": [
+          "REF-501",
+          "REF-503",
+          "REF-502"
+        ],
+        "latency_ms": 74.63
+      }
+    },
+    {
+      "id": "RET-014",
+      "query": "Which person must stay with their existing provider and can only attend two mornings?",
+      "expected_ids": [
+        "REF-502"
+      ],
+      "dense": {
+        "rank": 1,
+        "top_ids": [
+          "REF-502",
+          "REF-501"
+        ],
+        "latency_ms": 77.12
+      },
+      "bm25": {
+        "rank": 1,
+        "top_ids": [
+          "REF-502"
+        ],
+        "latency_ms": 3.71
+      },
+      "raw_hybrid": {
+        "rank": 1,
+        "top_ids": [
+          "REF-502",
+          "REF-501"
+        ],
+        "latency_ms": 72.83
+      },
+      "hybrid": {
+        "rank": 1,
+        "top_ids": [
+          "REF-502",
+          "REF-501"
+        ],
+        "latency_ms": 77.13
+      }
+    },
+    {
+      "id": "RET-015",
+      "query": "Which routine anxiety referral asks for evening telehealth?",
+      "expected_ids": [
+        "REF-503"
+      ],
+      "dense": {
+        "rank": 1,
+        "top_ids": [
+          "REF-503",
+          "REF-501"
+        ],
+        "latency_ms": 71.98
+      },
+      "bm25": {
+        "rank": 1,
+        "top_ids": [
+          "REF-503",
+          "REF-501"
+        ],
+        "latency_ms": 4.06
+      },
+      "raw_hybrid": {
+        "rank": 1,
+        "top_ids": [
+          "REF-503",
+          "REF-501"
+        ],
+        "latency_ms": 71.7
+      },
+      "hybrid": {
+        "rank": 1,
+        "top_ids": [
+          "REF-503",
+          "REF-501"
+        ],
+        "latency_ms": 71.99
+      }
+    },
+    {
+      "id": "RET-016",
+      "query": "Who can support a teenager with anxiety in Mandarin?",
+      "expected_ids": [
+        "CLN-601"
+      ],
+      "dense": {
+        "rank": 1,
+        "top_ids": [
+          "CLN-601",
+          "CLN-602",
+          "CLN-603"
+        ],
+        "latency_ms": 72.52
+      },
+      "bm25": {
+        "rank": 1,
+        "top_ids": [
+          "CLN-601",
+          "CLN-602"
+        ],
+        "latency_ms": 4.15
+      },
+      "raw_hybrid": {
+        "rank": 1,
+        "top_ids": [
+          "CLN-601",
+          "CLN-602",
+          "CLN-603"
+        ],
+        "latency_ms": 70.19
+      },
+      "hybrid": {
+        "rank": 1,
+        "top_ids": [
+          "CLN-601",
+          "CLN-602",
+          "CLN-603"
+        ],
+        "latency_ms": 72.53
+      }
+    },
+    {
+      "id": "RET-017",
+      "query": "Which clinician provides therapy in Spanish but has no near-term openings?",
+      "expected_ids": [
+        "CLN-602"
+      ],
+      "dense": {
+        "rank": 2,
+        "top_ids": [
+          "CLN-603",
+          "CLN-602",
+          "CLN-601"
+        ],
+        "latency_ms": 75.15
+      },
+      "bm25": {
+        "rank": 1,
+        "top_ids": [
+          "CLN-602"
+        ],
+        "latency_ms": 4.1
+      },
+      "raw_hybrid": {
+        "rank": 1,
+        "top_ids": [
+          "CLN-602",
+          "CLN-603"
+        ],
+        "latency_ms": 69.86
+      },
+      "hybrid": {
+        "rank": 1,
+        "top_ids": [
+          "CLN-602",
+          "CLN-603",
+          "CLN-601"
+        ],
+        "latency_ms": 75.16
+      }
+    },
+    {
+      "id": "RET-018",
+      "query": "Who can handle adult prescriptions and has early-week morning space?",
+      "expected_ids": [
+        "CLN-603"
+      ],
+      "dense": {
+        "rank": 1,
+        "top_ids": [
+          "CLN-603",
+          "CLN-601",
+          "CLN-602"
+        ],
+        "latency_ms": 75.56
+      },
+      "bm25": {
+        "rank": 1,
+        "top_ids": [
+          "CLN-603"
+        ],
+        "latency_ms": 3.53
+      },
+      "raw_hybrid": {
+        "rank": 1,
+        "top_ids": [
+          "CLN-603",
+          "CLN-601",
+          "CLN-602"
+        ],
+        "latency_ms": 69.33
+      },
+      "hybrid": {
+        "rank": 1,
+        "top_ids": [
+          "CLN-603",
+          "CLN-601",
+          "CLN-602"
+        ],
+        "latency_ms": 75.57
+      }
+    },
+    {
+      "id": "RET-019",
+      "query": "Which no-show was caused by confusion about the time zone in the confirmation?",
+      "expected_ids": [
+        "NS-402"
+      ],
+      "dense": {
+        "rank": 1,
+        "top_ids": [
+          "NS-402",
+          "NS-401"
+        ],
+        "latency_ms": 76.09
+      },
+      "bm25": {
+        "rank": 1,
+        "top_ids": [
+          "NS-402"
+        ],
+        "latency_ms": 4.3
+      },
+      "raw_hybrid": {
+        "rank": 1,
+        "top_ids": [
+          "NS-402"
+        ],
+        "latency_ms": 73.44
+      },
+      "hybrid": {
+        "rank": 1,
+        "top_ids": [
+          "NS-402",
+          "NS-401"
+        ],
+        "latency_ms": 76.1
+      }
+    },
+    {
+      "id": "RET-020",
+      "query": "Which person paused booking after learning care would cost more than expected?",
+      "expected_ids": [
+        "CAN-303"
+      ],
+      "dense": {
+        "rank": 1,
+        "top_ids": [
+          "CAN-303",
+          "CAN-301",
+          "CAN-302"
+        ],
+        "latency_ms": 74.84
+      },
+      "bm25": {
+        "rank": 1,
+        "top_ids": [
+          "CAN-303"
+        ],
+        "latency_ms": 4.3
+      },
+      "raw_hybrid": {
+        "rank": 1,
+        "top_ids": [
+          "CAN-303",
+          "CAN-301"
+        ],
+        "latency_ms": 70.91
+      },
+      "hybrid": {
+        "rank": 1,
+        "top_ids": [
+          "CAN-303",
+          "CAN-301",
+          "CAN-302"
+        ],
+        "latency_ms": 74.85
+      }
+    }
+  ]
+}
